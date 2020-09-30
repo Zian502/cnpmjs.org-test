@@ -1,0 +1,12 @@
+version: '3' # docker版本
+services: # 配置的容器列表
+  web: # 自定义，服务名称
+    build: # 基于dockerfile构建镜像(可增加args)
+      context: .
+      dockerfile: Dockerfile
+    image: cnpmjs.org # 镜像名称或id
+    volumes:
+      - cnpm-files-volume:/var/data/cnpm_data
+    ports:
+      - "7001:7001"
+      - "7002:7002" 
